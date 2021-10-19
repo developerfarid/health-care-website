@@ -1,0 +1,69 @@
+.my-carousel img {
+  height: 100vh;
+  object-fit: cover;
+}
+.overlay-car {
+  position: relative;
+  z-index: -1;
+}
+.overlay-car::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: black;
+  opacity: 0.7;
+}
+
+.my-carousel-info {
+  z-index: 11;
+  height: 200px;
+  padding-top: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  padding-bottom: 0 !important;
+  color: #fff;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.overly-heading {
+  font-size: 60px;
+}
+.overly-heading span {
+  color: rgb(230, 208, 17);
+}
+.my-carousel-info p {
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.img-info {
+  width: 50%;
+  background-color: #f65b5f;
+  color: #fff;
+  height: 100%;
+  border-radius: 0% 25% 25% 0% / 50% 50% 50% 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+.info-main {
+  transition: 0.3s all linear;
+}
+.info-main:hover {
+  transform: translateY(-15px);
+  box-shadow: rgba(255, 255, 255, 0.3) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.4) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.4) 0px 30px 60px -30px;
+}
+@media (max-width: 570px) {
+  .overly-heading {
+    font-size: 25px;
+  }
+}

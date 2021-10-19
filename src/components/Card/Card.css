@@ -1,0 +1,16 @@
+.card-design p {
+  font-size: 18px;
+  color: #8c8c90;
+}
+.img-design {
+  overflow: hidden;
+}
+.img-design img {
+  transition: all 0.5s linear;
+}
+.img-design img:hover {
+  transform: scale(1.2);
+}
+.service-card {
+  margin: 25px;
+}

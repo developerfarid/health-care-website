@@ -1,0 +1,11 @@
+.my-link {
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 25px;
+  display: inline-block;
+  color: #1b94ac;
+  transition: all 0.5s linear;
+}
+.my-link:hover {
+  color: #e6d011;
+}
