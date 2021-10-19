@@ -146,7 +146,7 @@ const useFirebase = () => {
             const user = userCredential.user;
             sentEmail()
             updateName()
-            setUser(user)
+            // setUser(user)
             setMessage("congratulations you have successfully registered")
             setError("")
             console.log(user);

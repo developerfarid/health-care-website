@@ -7,7 +7,7 @@ import './Header.css'
 const Header = () => {
     const {user, logOut}=useAuth()
     return (
-        <Navbar className="fixed-top"expand="lg">
+        <Navbar className="fixed-top bg-white"expand="lg">
             <Container>
                 <NavLink className="text-decoration-none fs-1 text-info" to="/home">ipharm</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
