@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
-
 
 const ServiceDetails = () => {
     const { service } = useAuth()

@@ -7,9 +7,9 @@ import useAuth from '../../Hooks/useAuth';
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoding } = useAuth()
     if (isLoding) {
-        return (<Spinner  animation="border" className="text-center m-auto" role="status">
-        <span  className="visually-hidden">Loading...</span>
-      </Spinner>)
+        return (<Spinner animation="border" className="text-center m-auto" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>)
     }
     return (
         <Route
@@ -21,7 +21,6 @@ const PrivateRoute = ({ children, ...rest }) => {
                 }}
             ></Redirect>}
         >
-
         </Route>
     );
 };

@@ -7,7 +7,7 @@ import { faFacebookF, faGithub, faGoogle } from '@fortawesome/free-brands-svg-ic
 
 
 const Register = () => {
-    const {error,message, facebookSign, handleEmail, handlePass, githubSign, createUser, handleName, googleSign, } = useAuth()
+    const { error, facebookSign, handleEmail, handlePass, githubSign, createUser, handleName, googleSign, } = useAuth()
     return (
         <Container className="register pt-5 my-5">
             <Row data-aos="zoom-in" md={2} sm={1} className=" container-form h-100">
@@ -17,17 +17,17 @@ const Register = () => {
                         <form onSubmit={createUser}>
                             <h1>Create Account</h1>
                             <div className="social-container">
-                            <button onClick={ facebookSign} className="social"><FontAwesomeIcon icon={faFacebookF} /></button>
-                        <button onClick={googleSign } className="social"><FontAwesomeIcon icon={faGoogle} /></button>
-                        <button onClick={githubSign} className="social"><FontAwesomeIcon icon={faGithub} /></button>
+                                <button onClick={facebookSign} className="social"><FontAwesomeIcon icon={faFacebookF} /></button>
+                                <button onClick={googleSign} className="social"><FontAwesomeIcon icon={faGoogle} /></button>
+                                <button onClick={githubSign} className="social"><FontAwesomeIcon icon={faGithub} /></button>
                             </div>
                             <span>or use your email for registration</span>
                             <input onBlur={handleName} type="text" placeholder="Name" />
                             <input onBlur={handleEmail} type="email" placeholder="Email" />
                             <input onBlur={handlePass} type="password" placeholder="Password" />
                             <input type="submit" className="submit" value="Sign Up" />
-                         
-                            <p className="text-danger">{error }</p>
+
+                            <p className="text-danger">{error}</p>
                         </form>
                     </div>
                 </Col>
@@ -38,18 +38,13 @@ const Register = () => {
                                 <h1>Welcome Back!</h1>
                                 <p>To keep connected with us please login with your personal info</p>
                                 <Link to='/login'>
-                                <button className="ghost">Sign In</button></Link>
+                                    <button className="ghost">Sign In</button></Link>
                             </div>
                         </div>
                     </div>
                 </Col>
-
-
-
-
             </Row>
         </Container>
     );
 };
-
 export default Register;

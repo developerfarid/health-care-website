@@ -2,7 +2,6 @@ import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAu
 import { useEffect, useState } from "react";
 import initializeAppAuth from "../Firebase/initializeAppAuth";
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 initializeAppAuth()
 const useFirebase = () => {
@@ -21,8 +20,7 @@ const useFirebase = () => {
     const [message, setMessage] = useState("")
     const [isLoding, setIsLoding] = useState(true)
 
-
-    
+// onAuthStateChanged here 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -33,29 +31,28 @@ const useFirebase = () => {
             setIsLoding(false)
         });
     }, [])
+    // Sweet alart 2 part
     const logInSms = () => {
         Swal.fire(
             'Well Done',
             'You have successfully Login',
             'success'
-          )
-          
- }
+          ) 
+    }
+    
     const registerSms = () => {
         Swal.fire(
             'Well Done',
             'You have successfully Register',
             'success'
-          )
-          
+          )  
  }
     const logInSmsE = () => {
         Swal.fire(
             'Opps',
             'Something wrong',
             'error'
-          )
-          
+          ) 
  }
     // service data here 
     useEffect(() => {
@@ -91,35 +88,23 @@ const useFirebase = () => {
        return signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
-              
                 setUser(user)
-                
+                logInSms()
                 setError("")
             }).catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
-
             }).finally(() => {
                 setIsLoding(false)
             })
-
     }
     // here call all 3rd party login syestem like facebbok , google , github
-   
-
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
      
       }
     const handlePass = (e) => {
-          
-        // A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !.
-
-        // It cannot be your old password or contain your username, "password", or "websitename"
-
-        // And here is my validation expression which is for eight characters including one uppercase letter, one lowercase letter, and one number or special character.
-        // (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
           setPassword(e.target.value)
 
     }
@@ -146,13 +131,18 @@ const useFirebase = () => {
                 logInSmsE()
                 setError(errorMessage)
             }).finally(()=> setIsLoding(false))
-        
- 
     }
     // username email and password register
     const createUser = (e) => {
         setIsLoding(true)
         e.preventDefault()
+        // A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !.
+
+        // It cannot be your old password or contain your username, "password", or "websitename"
+
+        // And here is my validation expression which is for eight characters including one uppercase letter, one lowercase letter, and one number or special character.
+        // (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+
         if (!/(?=^.{8,}$)/.test(password) ) {
             setError("Password Must Be 8 Digit")
             return
@@ -172,14 +162,11 @@ const useFirebase = () => {
             
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
+
             sentEmail()
             updateName()
-            // setUser(user)
             registerSms()
-            // setMessage("congratulations you have successfully registered")
             setError("")
-            console.log(user);
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -209,7 +196,6 @@ const useFirebase = () => {
             setError("")
         })
         .catch((error) => {
-          const errorCode = error.code;
             const errorMessage = error.message;
             setError(errorMessage)
 

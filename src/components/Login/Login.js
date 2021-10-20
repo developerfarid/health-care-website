@@ -5,11 +5,10 @@ import useAuth from '../../Hooks/useAuth';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+
 
 const Login = () => {
-    const { user, setUser, message, facebookSign, handleEmail, handlePass, githubSign, sentResetPassByEmail, handleSubmit, googleSign, } = useAuth()
+    const { user, facebookSign, handleEmail, handlePass, githubSign, sentResetPassByEmail, handleSubmit, googleSign, } = useAuth()
     const location = useLocation()
     const redirectUrl = (location.state?.from) || '/home';
     const history = useHistory()
@@ -32,15 +31,11 @@ const Login = () => {
             })
     }
 
-
-
     return (
         <Container className="register py-5 mt-5">
-            {/* <h2 className="text-center">Weekly Coding Challenge #1: Sign in/up Form</h2> */}
             <Row data-aos="zoom-in" md={2} sm={1} className="container-form h-100">
                 <Col>
-                    <div  className="form-container py-5">
-
+                    <div className="form-container py-5">
                         <form onSubmit={handleSubmit}>
                             <h1>Sign in</h1>
                             <div className="social-container">
@@ -53,7 +48,6 @@ const Login = () => {
                             <input onBlur={handlePass} type="password" placeholder="Password" required />
                             <button className="submit w-100" onClick={sentResetPassByEmail}>Forgot your password?</button>
                             <input className="submit" type="submit" value="Sign In" />
-
                         </form>
                     </div>
                 </Col>
@@ -68,14 +62,8 @@ const Login = () => {
                         </div>
                     </div>
                 </Col>
-
-
-
             </Row>
-
         </Container>
-
-
     );
 };
 
