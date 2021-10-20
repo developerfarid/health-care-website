@@ -1,6 +1,7 @@
 .card-design p {
   font-size: 18px;
   color: #8c8c90;
+  font-weight: 600;
 }
 .img-design {
   overflow: hidden;
@@ -8,9 +9,47 @@
 .img-design img {
   transition: all 0.5s linear;
 }
-.img-design img:hover {
+.card-design:hover .img-design img {
   transform: scale(1.2);
 }
 .service-card {
   margin: 25px;
+}
+.card-design {
+  border: 1px solid gray;
+  background: black;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  transition: all 0.5s linear;
+}
+.service-card h3 {
+  color: white;
+  cursor: pointer;
+}
+.card-design:hover {
+  transform: translateY(15px);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+/* Heading title */
+.title-m {
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+.title-heading {
+  position: relative;
+  color: #2498af;
+  display: inline-block;
+}
+.title-heading::after {
+  position: absolute;
+  border-radius: 5px;
+  left: 0;
+  top: 60px;
+  height: 5px;
+  width: 100%;
+  background-color: #2498af;
+  content: "";
+  margin: auto;
 }

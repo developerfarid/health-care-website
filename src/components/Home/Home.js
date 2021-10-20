@@ -59,25 +59,25 @@ const Home = () => {
             </Carousel>
             <Container>
             <Row className="py-5" xs={1} md={2} lg={3}>
-                    <Col>
+                    <Col data-aos="slide-left">
                         <HomeCard text="Our Pharmacists Are Here To Help" img='http://ipharm.axiomthemes.com/wp-content/uploads/2020/05/image-107-copyright.jpg'></HomeCard>
                     </Col>
-                    <Col>
+                    <Col data-aos="slide-up">
                         <HomeCard text="Our Pharmacists Are Here To Help" img='http://ipharm.axiomthemes.com/wp-content/uploads/2020/05/image-108-copyright.jpg' text="Up to 20% off" des="For all products"></HomeCard>
                     </Col>
-                    <Col>
+                    <Col  data-aos="slide-right">
                         <HomeCard text="Our Pharmacists Are Here To Help" img='http://ipharm.axiomthemes.com/wp-content/uploads/2020/05/image-106-copyright.jpg' text="25% off" des=" your purchase*"></HomeCard>
                     </Col>
 
                 </Row>
-                <h2 className="text-center my-5">Pharmacy Services</h2>
-                <Row sm={1}>
-                    <Col>
+                <h2 className="text-center title-heading my-5">Pharmacy Services</h2>
+                <Row className="gx-5 gy-1" xs={1} sm={1} md={2}>
+                 
                         {service.map(item => <Card key={Math.random()} item={item} />)}
-                    </Col>
+            
                 </Row>
-                <h1 className="text-center my-5">Our Blog</h1>
-                <Row className="h-100 mb-5 g-3" xs={1} md={2} lg={3} >
+                <h1 className="text-center title-heading my-5">Our Blog</h1>
+                <Row data-aos="fade-up" className="h-100 mb-5 g-3" xs={1} md={2} lg={3} >
                     
                     {
                         blog.slice(0,3).map(item => <BlogCard key={Math.random()} item={item} />)

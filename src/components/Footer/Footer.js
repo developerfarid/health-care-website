@@ -10,7 +10,7 @@ const Footer = () => {
                 <Row xs={1} md={2} lg={3}>
                     <Col>
                         <div className="footer-item">
-                            <Link className="fs-1 text-decoration-none text-info" to='/home'>
+                            <Link style={{fontFamily: "Oswald"}} className="fs-1 text-decoration-none text-info" to='/home'>
                                 ipharm
                             </Link>
                             <p>If you’re in need of medicines – we’re here by your side.Stay safe and buy online!</p>

@@ -7,7 +7,7 @@ const BlogCard = ({ item }) => {
     const {img, name, des, id, title, comments, date}= item
     console.log(item);
     return (
-        <Col  >
+        <Col  data-aos="fade-left">
             <div className="blog-con h-100">
                 <div className="blog-img">
                     <img className="img-fluid" src={img} alt="" />

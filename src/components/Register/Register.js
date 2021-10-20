@@ -10,7 +10,7 @@ const Register = () => {
     const {error,message, facebookSign, handleEmail, handlePass, githubSign, createUser, handleName, googleSign, } = useAuth()
     return (
         <Container className="register pt-5 my-5">
-            <Row md={2} sm={1} className="container-form h-100">
+            <Row data-aos="zoom-in" md={2} sm={1} className=" container-form h-100">
                 <Col>
                     <div className="form-container py-5">
 
@@ -26,8 +26,8 @@ const Register = () => {
                             <input onBlur={handleEmail} type="email" placeholder="Email" />
                             <input onBlur={handlePass} type="password" placeholder="Password" />
                             <input type="submit" className="submit" value="Sign Up" />
-                            <p>{message}</p>
-                            <p>{error }</p>
+                         
+                            <p className="text-danger">{error }</p>
                         </form>
                     </div>
                 </Col>

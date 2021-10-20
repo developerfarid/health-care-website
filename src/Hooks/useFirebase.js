@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAppAuth from "../Firebase/initializeAppAuth";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 initializeAppAuth()
 const useFirebase = () => {
@@ -31,6 +33,30 @@ const useFirebase = () => {
             setIsLoding(false)
         });
     }, [])
+    const logInSms = () => {
+        Swal.fire(
+            'Well Done',
+            'You have successfully Login',
+            'success'
+          )
+          
+ }
+    const registerSms = () => {
+        Swal.fire(
+            'Well Done',
+            'You have successfully Register',
+            'success'
+          )
+          
+ }
+    const logInSmsE = () => {
+        Swal.fire(
+            'Opps',
+            'Something wrong',
+            'error'
+          )
+          
+ }
     // service data here 
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/developerfarid/data/main/data.json')
@@ -67,6 +93,7 @@ const useFirebase = () => {
                 const user = result.user;
               
                 setUser(user)
+                
                 setError("")
             }).catch((error) => {
                 const errorMessage = error.message;
@@ -109,12 +136,14 @@ const useFirebase = () => {
                 const user = userCredential.user;
                 setUser(user)
                 setError("")
+                logInSms()
                 setMessage("Congratulations you have Successfully Login")
     
               // ...
             })
             .catch((error) => {
                 const errorMessage = error.message;
+                logInSmsE()
                 setError(errorMessage)
             }).finally(()=> setIsLoding(false))
         
@@ -128,7 +157,7 @@ const useFirebase = () => {
             setError("Password Must Be 8 Digit")
             return
         }
-        if (!/((?=.*\d)|(?=.*\W+))/.test(password)) {
+        if (!/(?=.*?[!@#\$&*~])/.test(password)) {
             setError("Need One Special characters")
             return
         }
@@ -147,7 +176,8 @@ const useFirebase = () => {
             sentEmail()
             updateName()
             // setUser(user)
-            setMessage("congratulations you have successfully registered")
+            registerSms()
+            // setMessage("congratulations you have successfully registered")
             setError("")
             console.log(user);
         })
@@ -186,25 +216,22 @@ const useFirebase = () => {
         });
 }
 
+    const logOutSms = () => {
+        Swal.fire(
+            'Well Done',
+            'You have successfully Logout',
+            'success'
+          )
+          
+ }
+ 
 
-    //  email and password login
-//     const loginWithEmailAndPass = (email,password) => {
-//         signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     const user = userCredential.user;
-//       setUser(user)
-//       setError("")
-//   })
-//   .catch((error) => {
-//       const errorMessage = error.message;
-//       setError(errorMessage)
-//   });
-//     }
     const logOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
             setUser({})
             setError("")
+            logOutSms()
           }).catch((error) => {
             setError(error.errorMessage)
           }).finally(()=> setIsLoding(false))

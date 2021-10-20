@@ -4,8 +4,28 @@
   margin-right: 25px;
   display: inline-block;
   color: #1b94ac;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
+  font-family: "Oswald", sans-serif;
+  position: relative;
+}
+.my-link::after {
+  position: absolute;
+  left: 0;
+  top: 35px;
+  width: 0%;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #febb6c;
+  content: "";
+  transition: 0.3s all linear;
+}
+.my-link:hover::after {
+  width: 100%;
 }
 .my-link:hover {
-  color: #e6d011;
+  color: #c59885;
+}
+.my-navber {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
